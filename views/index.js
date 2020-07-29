@@ -6,6 +6,7 @@ function insertImageCamera(section, imageCameras) {
     const newImage = document.createElement('img');
     newFigure.appendChild(newImage);
     newImage.setAttribute('src', imageCameras);
+
 }
 
 function insertName(div1, insertName) {
@@ -59,7 +60,10 @@ function insertLienPersonnalisation(div6, idLienCameras) {
     newP6.appendChild(A);
     A.className = 'lien_page_produit';
     A.setAttribute('href', './produit.html?id=' + idLienCameras);
-    A.innerHTML = 'Choisissez votre lentille';
+    A.innerHTML = 'Sélectionner ce produit';
+    A.addEventListener('click', function () {
+        localStorage.setItem('selectedProduct', idLienCameras);
+    })
 }
 
 function showErrorMessage() {

@@ -17,11 +17,37 @@
 <body>
 
     <header>
-        <h1>Orinoco</h1>
+        <h1><a href='index.html'>Orinoco</a></h1>
         <h2>Vente en ligne de caméras vintages</h2>
+
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="panier.html">Panier</a>
+        </nav>
     </header>
 
-    <section id="page_produit"></section>
+    <section id="page_produit">
+        <img src="" alt="" id="photo_camera">
+
+        <section id="info_camera">
+            <div id="name_camera"></div>
+            <div id="id_camera"></div>
+            <div id="prix_camera"></div>
+
+
+            <div id="lentille_camera">
+                <label for="lentille_select">Sélectionnez votre lentille</label>
+
+                <select name="lenses" id="lenses">
+                </select>
+            </div>
+
+            <div id="description_camera"></div>
+
+            <button id="ajout_panier"><a href="panier.html">Ajouter au panier</a></button>
+        </section>
+
+    </section>
 
     <footer>
         <section id="footer" class="footer_catalogue">
@@ -35,7 +61,7 @@
         </section>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="produit.js"></script>
 
 </body>
 
