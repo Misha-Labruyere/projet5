@@ -60,11 +60,20 @@ function insertDescription(description) {
   descriptionCamera.textContent = description;
 }
 
-function insertBoutonAjoutPanier(infoCamera) {
+function insertBoutonAjoutPanier(id) {
   const boutonAjoutPanier = document.getElementById("ajout_panier");
   boutonAjoutPanier.addEventListener("click", function (e) {
+    //Récuperer la valeur stockée en localstorage (tableau), dans le tableau on push la valeur de notre objet choisi (id + choice) et enfin on insert le tableau en localstorage
     //   stocker les informations de la camera selectionnee dans le local storage dans un tableau
-    localStorage.setItem("selectedCameras", JSON.stringify(infoCamera));
+    let selectChoice = document.getElementById("lenses");
+    let choiceLense = selectChoice.options[selectChoice.selectedIndex].value;
+    let choice = {idProduct : id, choiceProduct : choiceLense};
+    const selectedCameras = JSON.parse(localStorage.getItem("selectedCameras")) || [];
+    console.log(selectedCameras);
+    selectedCameras.push (choice);
+    localStorage.setItem("selectedCameras", JSON.stringify(selectedCameras));
+    
+    console.log(choiceLense);
   });
 }
 
@@ -82,7 +91,7 @@ promiseGet()
     const selectionLentille = document.getElementsByName("select");
     // selectionLentille.addEventListener("change", function (e) {});
 
-    insertBoutonAjoutPanier(response);
+    insertBoutonAjoutPanier(response._id);
   })
   .catch(function (error) {
     console.log(error);
