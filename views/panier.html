@@ -27,17 +27,21 @@
     </header>
 
     <section id="selection_panier">
-        <h3>Récapitulatif de votre panier</h3>
-        <div id="info_panier">            
-            <img id="photo" src="">
-            <div id="id"></div>
-            <div id="name"></div>
-            <div id="price"></div>
-            <div id="description"></div>
-        </div>
+        <h3 class="recap_panier">Récapitulatif de votre panier</h3>
+        
     </section>
 
-    <button id="validation_panier"><a href="confirmation-de-commande.html">Confirmer votre commande</a></button>
+    <form name="validation" method="post" action="">
+        Civilité<br>
+        <input type="radio" name="civilite"> Mlle<br>
+        <input type="radio" name="civilite"> Mme<br>
+        <input type="radio" name="civilite"> M.<br>
+        Nom et prénom
+        <input type="text" name="nom" value=""><br>
+        Email
+        <input type="text" name="email" value=""><br>
+        <input type="button" class="confirmation_commande name="validation_commande" value="Valider votre commande">
+    </form>
 
     <footer>
         <section id="footer" class="footer_catalogue">

@@ -3,51 +3,28 @@ const infoCamera = localStorage.getItem("selectedCameras");
 const infoCameras = JSON.parse(infoCamera);
 console.log(infoCamera);
 
-const Handlebars = require("handlebars");
-const template = Handlebars.compile("Name: {{name}}");
-console.log(template({ name: "Nils" }));
+for(const camera of infoCameras) {
 
-function recupCamera {
+  const recupId = camera.idProduct;
 
-}
+  fetch("http://localhost:3000/api/cameras/" + recupId)
 
-function recupName() {
-  const nameCamera = document.getElementById("name");
-  nameCamera.textContent = infoCameras.name;
-}
+    .then((product) => product.json())
 
-function recupId() {
-  const idCamera = document.getElementById("id");
-  idCamera.textContent = infoCameras._id;
-}
+    .then((product) => 
 
-function recupPhoto() {
-  const photoCamera = document.getElementById("photo");
-  photoCamera.src = infoCameras.imageUrl;
-}
+  let detailProduct = `<div class="info_panier">
+  <img class="photo" src="">
+  <div class="id">${product.id}</div>
+  <div class="name">${product.name}</div>
+  <div class="price">${product.price}</div>
+  <div class="description">${product.description}</div>
+  </div>`
 
-function recupPrice() {
-  const priceCamera = document.getElementById("price");
-  priceCamera.textContent = infoCameras.price;
-}
-
-function recupDescription() {
-  const descriptionCamera = document.getElementById("description");
-  descriptionCamera.textContent = infoCameras.description;
-}
-
-function validationCommande() {
-  const boutonValidationPanier = document.getElementById("validation_panier");
-  boutonValidationPanier.addEventListener("click", function (e) {
-    //   envoyer les informations du panier au server
-  });
-}
-
-const recupInfos = document.getElementById("info_panier");
-for (let i = 0; i < infoCameras.length; i++) {
-  recupName();
-  recupId();
-  recupPhoto();
-  recupPrice();
-  recupDescription();
+  const productPanier = document.getElementById("selection_panier")
+  productPanier.innerHTML = detailProduct
+    )
+    
+    .catch((error) => alert("Erreur : " + error));
+  console.log(camera);
 }

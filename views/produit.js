@@ -67,12 +67,13 @@ function insertBoutonAjoutPanier(id) {
     //   stocker les informations de la camera selectionnee dans le local storage dans un tableau
     let selectChoice = document.getElementById("lenses");
     let choiceLense = selectChoice.options[selectChoice.selectedIndex].value;
-    let choice = {idProduct : id, choiceProduct : choiceLense};
-    const selectedCameras = JSON.parse(localStorage.getItem("selectedCameras")) || [];
+    let choice = { idProduct: id, choiceProduct: choiceLense };
+    const selectedCameras =
+      JSON.parse(localStorage.getItem("selectedCameras")) || [];
     console.log(selectedCameras);
-    selectedCameras.push (choice);
+    selectedCameras.push(choice);
     localStorage.setItem("selectedCameras", JSON.stringify(selectedCameras));
-    
+
     console.log(choiceLense);
   });
 }
