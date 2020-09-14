@@ -152,3 +152,21 @@ form .confirmation_commande {
   background-color: rgba(255, 255, 255, 0.242);
 }
 
+.info_panier {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.7em 0.7em gold, -0.01em 0 0 0.1em lightgray;
+  margin : 30px;
+  max-width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo {
+  width: 20vw;
+  margin: auto;
+}
+
+.suppression_article {
+  box-shadow: none;
+}
