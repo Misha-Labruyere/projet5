@@ -68,8 +68,14 @@ function insertBoutonAjoutPanier(id) {
     let selectChoice = document.getElementById("lenses");
     let choiceLense = selectChoice.options[selectChoice.selectedIndex].value;
     let choice = { idProduct: id, choiceProduct: choiceLense };
-    const selectedCameras =
-      JSON.parse(localStorage.getItem("selectedCameras")) || [];
+    /*let selectedCameras = localStorage.getItem("selectedCameras") || [];
+    selectedCameras = JSON.parse(selectedCameras); */
+    let selectedCameras = [] ;
+    if (
+      localStorage.getItem("selectedCameras") !== null) {
+      selectedCameras = JSON.parse(localStorage.getItem("selectedCameras"));
+    }
+
     console.log(selectedCameras);
     selectedCameras.push(choice);
     localStorage.setItem("selectedCameras", JSON.stringify(selectedCameras));

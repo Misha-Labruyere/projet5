@@ -28,19 +28,25 @@
 
     <section id="selection_panier">
         <h3 class="recap_panier">Récapitulatif de votre panier</h3>
-        
+
     </section>
 
-    <form name="validation" method="post" action="">
-        Civilité<br>
-        <input type="radio" name="civilite"> Mlle<br>
-        <input type="radio" name="civilite"> Mme<br>
-        <input type="radio" name="civilite"> M.<br>
-        Nom et prénom
-        <input type="text" name="nom" value=""><br>
-        Email
-        <input type="text" name="email" value=""><br>
-        <input type="button" class="confirmation_commande name="validation_commande" value="Valider votre commande">
+    <form>
+        <h2>Formulaire de validation</h2>
+        <p>
+            <label for="nom">Nom</label> :
+            <input type="text" name="nom" id="nom" required placeholder="nom">
+        </p>
+        <p>
+            <label for="prenom">Prénom</label> :
+            <input type="prenom" name="prenom" id="prenom" required placeholder="prénom">
+        </p>
+        <p>
+            <label for="courriel">Courriel</label> :
+            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+        </p>
+        <input type="submit" value="Envoyer">
+        <input type="reset" value="Annuler">
     </form>
 
     <footer>
