@@ -31,7 +31,7 @@
 
     </section>
 
-    <form>
+    <form method="POST" action="">
         <h2>Formulaire de validation</h2>
         <p>
             <label for="nom">Nom</label> :
@@ -39,11 +39,23 @@
         </p>
         <p>
             <label for="prenom">Prénom</label> :
-            <input type="prenom" name="prenom" id="prenom" required placeholder="prénom">
+            <input type="text" name="prenom" id="prenom" required placeholder="prénom">
         </p>
         <p>
             <label for="courriel">Courriel</label> :
             <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+        </p>
+        <p>
+            <label for="adresse">Adresse</label> :
+            <input type="adresse" name="adresse" id="adresse" required placeholder="18 rue d'alsace">
+        </p>
+        <p>
+            <label for="code postal">Code postal</label> :
+            <input type="number" name="codepostal" id="codepostal" required placeholder="78100">
+        </p>
+        <p>
+            <label for="ville">Ville</label> :
+            <input type="text" name="ville" id="ville" required placeholder="Saint Germain en Laye">
         </p>
         <input type="submit" value="Envoyer">
         <input type="reset" value="Annuler">

@@ -5,30 +5,35 @@ const infoCameras = JSON.parse(infoCamera);
 for (const [index, camera] of infoCameras.entries()) {
   const recupId = camera.idProduct;
 
-  if (recupId !== null)  {
-  
-  }
+  let productInHtml = document.getElementById("product_" + recupId);
 
+  if(productInHtml) {
+    let count = Number(productInHtml.getElementsByClassName("product_count")[0].innerHTML)
+    count = count + 1
 
-  fetch("http://localhost:3000/api/cameras/" + recupId)
-    .then((product) => product.json())
+    productInHtml.innerHTML = count
 
-    .then((product) => {
-      console.log(product);
-      let detailProduct = `<div class="info_panier">
+  } else {
+    fetch("http://localhost:3000/api/cameras/" + recupId)
+      .then((product) => product.json())
+
+      .then((product) => {
+        let detailProduct = `<div class="info_panier">
   <img class="photo" src="${product.imageUrl}">
-  <div class="lens">${product.choiceProduct}</div>
-  <div class="name">${product.name}</div>
+  <div class="name">${product.name}</div>  
+  <div class="lens">${camera.choiceProduct}</div>
   <div class="price">${product.price}</div>
+  <div class="product_count">count</div>
   <div class="description">${product.description}</div>
   <button onclick="delete_product(${index})" class="suppression_article">Supprimer du panier</button>
   </div>`;
-      const productPanier = document.getElementById("selection_panier");
-      productPanier.innerHTML += detailProduct;
-    })
+        const productPanier = document.getElementById("selection_panier");
+        productPanier.innerHTML += detailProduct;
+      })
 
-    .catch((error) => alert("Erreur : " + error));
-  console.log(camera);
+      .catch((error) => alert("Erreur : " + error));
+    console.log(camera);
+  }
 }
 
 function delete_product(id) {
