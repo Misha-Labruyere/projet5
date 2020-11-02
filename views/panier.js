@@ -23,7 +23,7 @@ for (const [index, camera] of infoCameras.entries()) {
   <div class="name">${product.name}</div>  
   <div class="lens">${camera.choiceProduct}</div>
   <div class="price">${product.price}</div>
-  <div class="product_count">count</div>
+  <div class="product_count">1</div>
   <div class="description">${product.description}</div>
   <button onclick="delete_product(${index})" class="suppression_article">Supprimer du panier</button>
   </div>`;
